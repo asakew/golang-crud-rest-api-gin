@@ -2,6 +2,9 @@
 
 This is a simple CRUD (Create, Read, Update, Delete) REST API in Go using the Gin web framework.
 
+Before learning about implementation of REST API in Go using GIN, I suggest learn the basics of GO first.
+Chackout the repository [here](https://github.com/Shikha-code36/golang-tutorial-practice) to learn about the basic implementation in GO.
+
 ## Getting Started
 
 Follow these instructions to get a copy of the project up and running on your local machine.
