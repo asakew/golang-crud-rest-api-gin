@@ -12,8 +12,8 @@ type User struct {
 }
 
 var users = []User{
-	{ID: 1, Name: "John"},
-	{ID: 2, Name: "Jane"},
+	{ID: 1, Name: "Radha"},
+	{ID: 2, Name: "Krishna"},
 }
 
 func GetUsers(c *gin.Context) {
