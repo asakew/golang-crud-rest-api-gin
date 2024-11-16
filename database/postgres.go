@@ -8,13 +8,13 @@ import (
 )
 
 func ConnectingUsersDB() {
-	dsn := "host=localhost user=postgres password=Root dbname=users_db port=5432 sslmode=disable"
-	UsersDB, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})
+	UserDSN := "host=localhost user=postgres password=Root dbname=users_db port=5432 sslmode=disable"
+	UserDB, err := gorm.Open(postgres.Open(UserDSN), &gorm.Config{})
 	if err != nil {
 		log.Fatal("Failed to connect to database:", err)
 	}
 
-	if err := UsersDB.AutoMigrate(&models.User{}); err != nil {
+	if err := UserDB.AutoMigrate(&models.User{}); err != nil {
 		log.Fatal("Failed to migrate database:", err)
 	}
 }
