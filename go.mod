@@ -1,6 +1,6 @@
 module github.com/Shikha-code36/golang-crud-rest-api-gin
 
-go 1.22.2
+go 1.23
 
 require github.com/gin-gonic/gin v1.9.1
 
