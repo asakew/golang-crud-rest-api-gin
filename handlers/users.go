@@ -41,6 +41,25 @@ func CreateUser(c *gin.Context) {
 	c.JSON(http.StatusOK, user)
 }
 
+//func CreateUser(c *gin.Context) {
+//	var user models.User
+//	if err := c.ShouldBind(&user); err != nil {
+//		log.Printf("Binding Error: %v\n", err)
+//		c.JSON(http.StatusBadRequest, gin.H{"error": "Invalid input"})
+//		return
+//	}
+//
+//	UserDB := c.MustGet("UserDB").(*gorm.DB)
+//	if err := UserDB.Create(&user).Error; err != nil {
+//		log.Printf("Database Error: %v\n", err)
+//		c.JSON(http.StatusInternalServerError, gin.H{"error": "Unable to create user"})
+//		return
+//	}
+//
+//	c.JSON(http.StatusOK, gin.H{"message": "User created successfully"})
+//c.Redirect(http.StatusSeeOther, "/users")
+//}
+
 func UpdateUser(c *gin.Context) {
 	id, _ := strconv.Atoi(c.Param("id"))
 	var updateUser models.User
