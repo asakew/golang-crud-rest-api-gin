@@ -1,17 +1,13 @@
 package handlers
 
 import (
+	"github.com/Shikha-code36/golang-crud-rest-api-gin/models"
 	"github.com/gin-gonic/gin"
 	"net/http"
 	"strconv"
 )
 
-type User struct {
-	ID   int    `json:"id"`
-	Name string `json:"name"`
-}
-
-var users = []User{
+var users = []models.User{
 	{ID: 1, Name: "Radha"},
 	{ID: 2, Name: "Krishna"},
 }
@@ -34,21 +30,20 @@ func GetUser(c *gin.Context) {
 var lastID = 2 // keep track of last used ID
 
 func CreateUser(c *gin.Context) {
-	var user User
+	var user models.User
 	if err := c.ShouldBindJSON(&user); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
-	lastID++ // increment last used ID
+	lastID++         // increment last used ID
 	user.ID = lastID // assign new ID to user
 	users = append(users, user)
 	c.JSON(http.StatusOK, user)
 }
 
-
 func UpdateUser(c *gin.Context) {
 	id, _ := strconv.Atoi(c.Param("id"))
-	var updateUser User
+	var updateUser models.User
 	if err := c.ShouldBindJSON(&updateUser); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
@@ -63,7 +58,6 @@ func UpdateUser(c *gin.Context) {
 	}
 	c.JSON(http.StatusNotFound, gin.H{"status": "not found"})
 }
-
 
 func DeleteUser(c *gin.Context) {
 	id, _ := strconv.Atoi(c.Param("id"))

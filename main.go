@@ -1,12 +1,15 @@
 package main
 
 import (
-	"github.com/gin-gonic/gin"
+	"github.com/Shikha-code36/golang-crud-rest-api-gin/database"
 	"github.com/Shikha-code36/golang-crud-rest-api-gin/handlers"
+	"github.com/gin-gonic/gin"
 )
 
 func main() {
 	r := gin.Default()
+
+	database.ConnectingUsersDB()
 
 	r.GET("/users", handlers.GetUsers)
 	r.GET("/user/:id", handlers.GetUser)
