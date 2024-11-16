@@ -17,5 +17,8 @@ func main() {
 	r.PUT("/update_user/:id", handlers.UpdateUser)
 	r.DELETE("/delete_user/:id", handlers.DeleteUser)
 
-	r.Run()
+	err := r.Run()
+	if err != nil {
+		return
+	}
 }
